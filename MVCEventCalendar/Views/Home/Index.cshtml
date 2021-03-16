@@ -3,7 +3,7 @@
 }
 
 <h2>Index</h2>
-<div id="calender"></div>
+<div id="calendar"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -77,6 +77,7 @@
                             <option value="blue">Blue</option>
                             <option value="black">Black</option>
                             <option value="green">Green</option>
+                            <option value="purple">Purple</option>
                         </select>
                     </div>
                     <button type="button" id="btnSave" class="btn btn-success">Save</button>
@@ -117,7 +118,7 @@
                             });
                         })
 
-                        GenerateCalender(events);
+                        GenerateCalendar(events);
                     },
                     error: function (error) {
                         alert('failed');
@@ -125,9 +126,9 @@
                 })
             }
 
-            function GenerateCalender(events) {
-                $('#calender').fullCalendar('destroy');
-                $('#calender').fullCalendar({
+            function GenerateCalendar(events) {
+                $('#calendar').fullCalendar('destroy');
+                $('#calendar').fullCalendar({
                     contentHeight: 400,
                     defaultDate: new Date(),
                     timeFormat: 'h(:mm)a',
@@ -194,7 +195,7 @@
                         data: {'eventID': selectedEvent.eventID},
                         success: function (data) {
                             if (data.status) {
-                                //Refresh the calender
+                                //Refresh the calendar
                                 FetchEventAndRenderCalendar();
                                 $('#myModal').modal('hide');
                             }
@@ -277,7 +278,7 @@
                     data: data,
                     success: function (data) {
                         if (data.status) {
-                            //Refresh the calender
+                            //Refresh the calendar
                             FetchEventAndRenderCalendar();
                             $('#myModalSave').modal('hide');
                         }
